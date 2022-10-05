@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Submit Form On Page Load Using JavaScript</title>
+</head>
+
+<body onload="submit()">
+    <h1>VOTANDO...</h1>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function submit() {
+            var myObject = 1;
+            var json = JSON.stringify(myObject);
+            var request = new XMLHttpRequest();
+            // {% if page.lang == "es" %}
+            // var url = "https://hooks.zapier.com/hooks/catch/11453159/bmct5hc";
+            // {% else %}
+            var url = "https://hooks.zapier.com/hooks/catch/13513882/bcv9csg";
+            // {% endif %}
+            request.open("POST", url);
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status == 200) {
+                    setTimeout(function () {
+                        window.location.assign("https://sites.google.com/view/lauriygonza");
+                    }, 5000);
+                } else {
+                    console.log("Error");
+                }
+            };
+            request.send(json);
+        }
+    </script>
+</body>
+
+</html>
