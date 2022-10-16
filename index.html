@@ -22,7 +22,7 @@
             const urlParams = new URLSearchParams(queryString);
             const id = urlParams.get('id');
             if (id) {
-                var json = JSON.stringify(id);
+                var json = JSON.stringify(Number(id));
                 var request = new XMLHttpRequest();
                 var url = "https://hooks.zapier.com/hooks/catch/13513882/bcv9csg";
                 request.open("POST", url);
