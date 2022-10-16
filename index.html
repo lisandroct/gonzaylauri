@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>Votando...</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+
+<body onload="submit()">
+    <img src="logo.png" />
+    <h1>VOTANDO...</h1>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function submit() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const id = urlParams.get('id');
+            if (id) {
+                var json = JSON.stringify(id);
+                var request = new XMLHttpRequest();
+                var url = "https://hooks.zapier.com/hooks/catch/13513882/bcv9csg";
+                request.open("POST", url);
+                request.onreadystatechange = function () {
+                    if (request.readyState === 4 && request.status == 200) {
+                        setTimeout(function () {
+                            window.location.assign("https://sites.google.com/view/lauriygonza");
+                        }, 3000);
+                    } else {
+                        console.log("Error");
+                    }
+                };
+                request.send(json);
+            }
+        }
+    </script>
+</body>
+
+</html>
